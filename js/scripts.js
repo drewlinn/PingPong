@@ -7,5 +7,8 @@ $(document).ready(function(event){
     event.preventDefault();
     var userInput = parseInt($("input#userInput").val());
     console.log(userInput);
+    if (Number.isInteger(userInput) === false ) {
+      $("#NaN").show();
+    };
   });
 });

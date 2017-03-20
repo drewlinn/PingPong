@@ -1,6 +1,4 @@
 //business logic
-var result = [];
-
 function resetFields()  {
   $("input#userInput").val();
 };
@@ -18,6 +16,8 @@ $(document).ready(function(event){
         $("ul#pingpong").append("<li>" + "Pong!" + "</li>");
     }  else if ((userInput) % 3 === 0)  {
         $("ul#pingpong").append("<li>" + "Ping!" + "</li>");
+    }  else {
+        $("ul#pingpong").append("<li>" + userInput + "</li>");
     };
   });
 });

@@ -1,6 +1,17 @@
 //business logic
-function resetFields()  {
-  $("input#userInput").val();
+var letsPlay = function(number) {
+  var output;
+  for (var index = 1; index <= userInput; index ++) {
+      if ((index) % 15 === 0) {
+        output = "PingPong!";
+    } else if ((index) % 5 === 0) {
+        output = "Pong!";
+    } else if ((index) % 3 === 0) {
+        output = "Pong!";
+    } else  {
+        output = index;
+    };
+  };
 };
 
 //user interface logic
@@ -9,15 +20,10 @@ $(document).ready(function(event){
     event.preventDefault();
     var userInput = parseInt($("input#userInput").val());
     if (Number.isInteger(userInput) === false ) {
-      $(alert("Please enter a number!"));
-    } else if ((userInput) % 15 === 0) {
-        $("ul#pingpong").append("<li>" + "Ping-Pong!" + "</li>");
-    } else if ((userInput) % 5 === 0) {
-        $("ul#pingpong").append("<li>" + "Pong!" + "</li>");
-    }  else if ((userInput) % 3 === 0)  {
-        $("ul#pingpong").append("<li>" + "Ping!" + "</li>");
-    }  else {
-        $("ul#pingpong").append("<li>" + userInput + "</li>");
+        $(alert("Please enter a number!"));
+    } else {
+        $(userInput).letsPlay();
+        $("ul#pingpong").append("<li>" + output + "</li>");
     };
   });
 });

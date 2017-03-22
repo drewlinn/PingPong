@@ -1,17 +1,18 @@
 //business logic
-var letsPlay = function(number) {
+var pingPong = function(userInput) {
   var output;
   for (var index = 1; index <= userInput; index ++) {
-      if ((index) % 15 === 0) {
-        output = "PingPong!";
-    } else if ((index) % 5 === 0) {
-        output = "Pong!";
-    } else if ((index) % 3 === 0) {
-        output = "Pong!";
+      if (index % 15 === 0 || index % 5 === 0 && index % 3 === 0) {
+        var output = "PingPong!";
+    } else if (index % 5 === 0) {
+        var output = "Pong!";
+    } else if (index % 3 === 0) {
+        var output = "Pong!";
     } else  {
-        output = index;
+        var output = index;
     };
   };
+  return output;
 };
 
 //user interface logic
@@ -22,7 +23,7 @@ $(document).ready(function(event){
     if (Number.isInteger(userInput) === false ) {
         $(alert("Please enter a number!"));
     } else {
-        $(userInput).letsPlay();
+        $(userInput).pingPong();
         $("ul#pingpong").append("<li>" + output + "</li>");
     };
   });

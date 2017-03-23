@@ -12,18 +12,22 @@ var pingPong = function(userInput) {
     };
   };
 };
+var resetFields = function()  {
+  $("input#userInput").val("");
+};
 
 //user interface logic
 $(document).ready(function(event){
   $("form#userInput").submit(function(event){
     event.preventDefault();
+    $("ul#pingpong").empty();
     var userInput = parseInt($("input#userInput").val());
     if (Number.isInteger(userInput) === false ) {
         $(alert("Please enter a number!"));
     } else {
       pingPong(userInput);
-
     };
+    resetFields();
 
   });
 });

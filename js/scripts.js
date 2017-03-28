@@ -1,17 +1,19 @@
 //business logic
+var outputs = [];
 var pingPong = function(userInput) {
-  for (var index = 1; index <= userInput; index ++) {
+    for (var index = 1; index <= userInput; index ++) {
       if (index % 15 === 0 || index % 5 === 0 && index % 3 === 0) {
-      $("ul#pingpong").append("<li>Pingpong!</li>");
+      outputs.push("Pingpong!");
     } else if (index % 5 === 0) {
-      $("ul#pingpong").append("<li>Pong!</li>");
+      outputs.push("Pong!");
     } else if (index % 3 === 0) {
-      $("ul#pingpong").append("<li>Ping!</li>");
+      outputs.push("Ping!");
     } else  {
-      $("ul#pingpong").append("<li>" + index + "</li>");
-    };
-  };
+      outputs.push(index);
+    }
+  }
 };
+
 var resetFields = function()  {
   $("input#userInput").val("");
 };
@@ -26,8 +28,10 @@ $(document).ready(function(event){
         $(alert("Please enter a number!"));
     } else {
       pingPong(userInput);
+      outputs.forEach(function(output){
+      $("ul#pingpong").append("<li>" + output + "</li>");
+      });
     };
     resetFields();
-
   });
 });

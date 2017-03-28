@@ -1,6 +1,7 @@
 //business logic
-var outputs = [];
+
 var pingPong = function(userInput) {
+  var outputs = [];
     for (var index = 1; index <= userInput; index ++) {
       if (index % 15 === 0 || index % 5 === 0 && index % 3 === 0) {
       outputs.push("Pingpong!");
@@ -12,6 +13,7 @@ var pingPong = function(userInput) {
       outputs.push(index);
     }
   }
+  return outputs;
 };
 
 var resetFields = function()  {
@@ -27,11 +29,11 @@ $(document).ready(function(event){
     if (Number.isInteger(userInput) === false ) {
         $(alert("Please enter a number!"));
     } else {
-      pingPong(userInput);
-      outputs.forEach(function(output){
-      $("ul#pingpong").append("<li>" + output + "</li>");
-      });
-    };
+      var numbers = pingPong(userInput);
+      numbers.forEach(function(number){
+        $("ul#pingpong").append("<li>" + number + "</li>");
+      })
+    }
     resetFields();
   });
 });

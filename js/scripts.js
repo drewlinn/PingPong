@@ -1,5 +1,4 @@
 //business logic
-
 var pingPong = function(userInput) {
   var outputs = [];
     for (var index = 1; index <= userInput; index ++) {
